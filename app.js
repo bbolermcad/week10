@@ -48,11 +48,6 @@ function draw () {
   ellipse (250, 400, 100, 100);
   fill(0, 0, 0);
   text('play synth wave', 210, 400);
-  //soundFile1//
-  fill(149, 134, 134);
-  ellipse (400, 200, 150, 150);
-  fill(0, 0, 0);
-  text('play synth wave', 210, 400);
 
 }
 
