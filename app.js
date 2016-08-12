@@ -1,5 +1,5 @@
 var mic, recorder, soundFile1, beats, drums, guitarlead, riff, synth1, synthmelody;
-var state = 0
+var mic state = 0
 
 function preload() {
   beats = loadSound('beats.wav');
@@ -70,6 +70,7 @@ function mousePressed(){
   var guitard = dist(mouseX, mouseY, 250, 100)
   var riffd = dist(mouseX, mouseY, 250, 250)
   var melodyd = dist(mouseX, mouseY, 250, 400)
+  var sound1d = dist(mouseX, mouseY, 400, 200)
 
   if (beats.isPlaying()) {
     beats.stop();
@@ -106,4 +107,29 @@ function mousePressed(){
   } else if (melodyd < 50) {
     synthmelody.play()
   }
+
+  if (state === 0 && mic.enabled; sound1d <75) {
+
+   // record to our p5.SoundFile
+   recorder.record(soundFile1);
+
+   background(255,0,0);
+   state++;
+ }
+ else if (state === 1) {
+   background(0,255,0);
+
+   recorder.stop();
+
+   text('Stopped', 20, 20);
+   state++;
+ }
+
+ else if (state === 2) {
+   soundFile1.play(); // play the result!
+   save(soundFile1, 'mySound1.wav');
+   state++;
+
+ }
+
 }
