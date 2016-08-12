@@ -1,5 +1,5 @@
-var mic, recorder, soundFile1, beats, drums, guitarlead, riff, synth1, synthmelody;
-var mic state = 0
+var beats, drums, guitarlead, riff, synth1, synthmelody;
+
 
 function preload() {
   beats = loadSound('beats.wav');
@@ -14,10 +14,6 @@ function preload() {
 function setup() {
   createCanvas(600, 600);
   background (202, 190, 190);
-  mic = new p5.AudioIn();
-  mic.start();
-  recorder.setInput(mic);
-  soundFile1 = new p5.SoundFile();
 }
 
 function draw () {
@@ -108,28 +104,5 @@ function mousePressed(){
     synthmelody.play()
   }
 
-  if (state === 0 && mic.enabled; sound1d <75) {
-
-   // record to our p5.SoundFile
-   recorder.record(soundFile1);
-
-   background(255,0,0);
-   state++;
- }
- else if (state === 1) {
-   background(0,255,0);
-
-   recorder.stop();
-
-   text('Stopped', 20, 20);
-   state++;
- }
-
- else if (state === 2) {
-   soundFile1.play(); // play the result!
-   save(soundFile1, 'mySound1.wav');
-   state++;
-
- }
 
 }
