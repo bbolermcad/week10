@@ -1,4 +1,5 @@
-var beats, drums, guitarlead, riff, synth1, synthmelody;
+var mic, recorder, soundFile1, beats, drums, guitarlead, riff, synth1, synthmelody;
+var state = 0
 
 function preload() {
   beats = loadSound('beats.wav');
@@ -13,40 +14,53 @@ function preload() {
 function setup() {
   createCanvas(600, 600);
   background (202, 190, 190);
+  mic = new p5.AudioIn();
+  mic.start();
+  recorder.setInput(mic);
+  soundFile1 = new p5.SoundFile();
 }
 
 function draw () {
 
   //beats//
-  fill(210, 28, 65)
+  fill(210, 28, 65);
   ellipse(100, 100, 100, 100);
+  fill(0, 0, 0);
+  text('play beat loop', 70, 100);
   //drums//
   fill(174, 73, 185);
   ellipse(100, 250, 100, 100);
+  fill(0, 0, 0);
+  text('play drums', 70, 250);
   //synth//
   fill (28, 210, 134);
   ellipse (100, 400, 100, 100);
+  fill(0, 0, 0);
+  text('play synth sound', 60, 400);
   //guitarlead//
   fill(14, 189, 189);
   ellipse (250, 100, 100, 100);
+  fill(0, 0, 0);
+  text('play guitar lead', 215, 100);
   //guitar riff//
   fill (210, 113, 28);
   ellipse (250, 250, 100, 100);
+  fill(0, 0, 0);
+  text('play guitar riff', 220, 250);
   //synthmelody//
   fill(239, 234, 102);
   ellipse (250, 400, 100, 100);
+  fill(0, 0, 0);
+  text('play synth wave', 210, 400);
+  //soundFile1//
+  fill(149, 134, 134);
+  ellipse (400, 200, 150, 150);
+  fill(0, 0, 0);
+  text('play synth wave', 210, 400);
+
 }
 
 
- //volume+speed adjusters//
- function draw () {
-  var volume = map(0, mouseY, 0,1, height);
-   volume = constrain(volume, 0, 1);
-  beats.amp(volume);
-  stroke(0);
-  fill(51, 100);
-  ellipse(100, mouseY, 48, 48);
- }
 
 
 function mousePressed(){
